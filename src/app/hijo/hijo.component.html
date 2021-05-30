@@ -1,3 +1,6 @@
 <p>hijo works!</p>
+<p>variable compartida en el componente hijo: <span>{{ejemploS.getVariableCompartida()}}</span></p>
 <p> el Padre me envió: <span>{{mensajeRecibidoDelPadre}}</span></p>
 <button (click)="enviarMensajeAlPadre()">Enviar mensaje al padre</button>
+<p>datos obtenidos del servicio Hijo: </p>
+<pre>{{datosObtenidosDelServicio | json}}</pre>

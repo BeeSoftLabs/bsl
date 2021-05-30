@@ -1,3 +1,6 @@
 <p>padre works!</p>
+<p>variable compartida en el componente Padre: <span>{{ejemploS.getVariableCompartida()}}</span></p>
+<p>datos obtenidos del servicio Padre: </p>
+<pre>{{datosObtenidosDelServicio | json}}</pre>
 <p> el Hijo me envió: <span>{{mensajeRecibidoDelHijo}}</span></p>
 <app-hijo [mensajeRecibidoDelPadre]="mensajeAlHijo" (escucharMensajeDelHijo)="recibirMensajeDelHijo($event)"></app-hijo>

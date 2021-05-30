@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EjemploService } from '../ejemplo.service';
 
 @Component({
   selector: 'app-padre',
@@ -12,13 +13,15 @@ export class PadreComponent implements OnInit {
   */
   mensajeAlHijo: string;
   mensajeRecibidoDelHijo: string;
+  datosObtenidosDelServicio: any;
 
   /**
    * El constructor es una buena zona para inicializar variables
   */
-  constructor() {
+  constructor(public readonly ejemploS: EjemploService) {
     this.mensajeAlHijo = '';
     this.mensajeRecibidoDelHijo = '';
+    this.datosObtenidosDelServicio = {};
   }
 
   /**
@@ -26,6 +29,7 @@ export class PadreComponent implements OnInit {
   */
   ngOnInit(): void {
     this.mensajeAlHijo = 'hola Hijo';
+    this.datosObtenidosDelServicio = this.ejemploS.getUserInformation('padreComponent');
   }
 
   public recibirMensajeDelHijo(mensajeRecibidoDelHijo: string): void {

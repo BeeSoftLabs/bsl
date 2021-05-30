@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { EjemploService } from '../ejemplo.service';
 
 @Component({
   selector: 'app-hijo',
@@ -13,14 +14,16 @@ export class HijoComponent implements OnInit {
   @Input() mensajeRecibidoDelPadre: string;
   mensajeAlPadre: string;
   @Output() escucharMensajeDelHijo: EventEmitter<string>;
+  datosObtenidosDelServicio: any;
 
   /**
    * El constructor es una buena zona para inicializar variables
    */
-  constructor() {
+  constructor(public readonly ejemploS: EjemploService) {
     this.mensajeRecibidoDelPadre = '';
     this.mensajeAlPadre = '';
     this.escucharMensajeDelHijo = new EventEmitter();
+    this.datosObtenidosDelServicio = {};
   }
 
   /**
@@ -28,6 +31,7 @@ export class HijoComponent implements OnInit {
    */
   ngOnInit(): void {
     this.mensajeAlPadre = "hola Padre";
+    this.datosObtenidosDelServicio = this.ejemploS.getUserInformation('hijoComponent');
   }
 
   public enviarMensajeAlPadre(): void {
