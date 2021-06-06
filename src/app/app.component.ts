@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'bsl';
+  /**
+   * zona para declarar variables
+   */
+  mostrarComponente = true;
+  nombre = 'Beeman';
+
+  public handleClick(): void {
+    this.mostrarComponente = !this.mostrarComponente;
+  }
+
+  public getNombreBoton(): string {
+    return (this.mostrarComponente) ? 'ocultar componente': 'mostrar componente';
+  }
 }
